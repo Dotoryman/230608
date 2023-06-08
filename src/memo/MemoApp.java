@@ -12,14 +12,19 @@ public class MemoApp {
 		MemoList app = new MemoListImpl(); // ArrayList 컬렉션에 넣던지
 										   // 파일 저장
 										   // DB에 저장
-		
+		int selectNo = 0;
 		boolean run = true;
 		while(run) {
 			System.out.println("-----------------------------------");
 			System.out.println("1.추가 2.수정(번호&날짜) 3.삭제 (번호&날짜) 4.조회(번호&날짜) 5.전체목록출력 6.종료");
 			System.out.print("선택> ");
 			//1. 추가 2. 수정 3. 삭제(번호기준,날짜기준) 4. 조회(번호기준,날짜기준) 5. 전체목록 출력 6.종료
-			int selectNo = Integer.parseInt(scn.nextLine());
+			try{
+				selectNo = Integer.parseInt(scn.nextLine());
+			}catch(Exception e) {
+				System.out.println("숫자를 입력해주세요");
+				continue;
+			}
 			if (selectNo == 1) {
 				System.out.println("번호를 입력하세요");
 				int no = Integer.parseInt(scn.nextLine());
